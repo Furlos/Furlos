@@ -8,9 +8,10 @@
 
 <p align="center">
   <a href="https://github.com/Furlos?tab=repositories">Repositories</a> ·
-  <a href="https://github.com/Furlos/alfabank-AI-bot">AI Banking Assistant</a> ·
-  <a href="https://github.com/Furlos/vtb_optimization">PostgreSQL Optimization</a> ·
-  <a href="https://github.com/Furlos/Marzban_bot">Backend Automation</a>
+  <a href="https://github.com/Furlos/alfabank-AI-bot">AI Services</a> ·
+  <a href="https://github.com/Furlos/vtb_optimization">PostgreSQL Performance</a> ·
+  <a href="https://github.com/Furlos/Marzban_bot">API Integration</a> ·
+  <a href="https://github.com/Furlos/MemoPad">Web Backend</a>
 </p>
 
 ---
@@ -19,7 +20,7 @@
 
 I build backend systems in **Python** — from API and database layers to async workers, integrations, bots and AI-powered services.
 
-I like projects where backend engineering is visible: clear boundaries, predictable data flow, useful abstractions, observability, deployment and performance rather than just “it runs on my machine”.
+I like projects where backend engineering is visible: clear boundaries, predictable data flow, useful abstractions, deployment and performance rather than just “it runs on my machine”.
 
 ```python
 class Furlos:
@@ -72,24 +73,36 @@ class Furlos:
 
 ## 🚀 Selected engineering work
 
+<p align="center">
+  <img src="./assets/portfolio-matrix.svg" width="100%" alt="Four backend portfolio projects" />
+</p>
+
 <table>
 <tr>
 <td width="50%" valign="top">
 
 ### 🤖 [Alfabank AI Bot](https://github.com/Furlos/alfabank-AI-bot)
 
-AI assistant for small business in Telegram. The project is split into a **Telegram bot**, an **AI service** and an **LLM/model layer**, and is packaged with Docker Compose.
+**Focus:** service architecture + AI integration
+
+AI assistant for small business in Telegram, split into a **Telegram interface**, a dedicated **AI service** and a separate **model/LLM layer**. The project is packaged as multiple services with Docker Compose.
 
 `Python` `AI/LLM` `Telegram` `Docker`
+
+**Shows:** service separation, async integration, external model orchestration.
 
 </td>
 <td width="50%" valign="top">
 
 ### 🐘 [PostgreSQL OLAP Optimization](https://github.com/Furlos/vtb_optimization)
 
-Performance lab for analytical workloads over millions of synthetic banking records. Uses **BRIN / partial / composite indexes**, materialized views and repeatable query timing to compare raw OLAP queries with optimized paths.
+**Focus:** database performance + analytical workloads
+
+Performance lab over millions of synthetic banking records. Explores **BRIN, partial and composite indexes**, materialized views and repeatable query timing for heavier OLAP-style analytics.
 
 `Python` `PostgreSQL` `OLAP` `Performance`
+
+**Shows:** query optimization thinking, data-heavy backend work, measurement-driven tuning.
 
 </td>
 </tr>
@@ -98,18 +111,26 @@ Performance lab for analytical workloads over millions of synthetic banking reco
 
 ### ⚙️ [Marzban Bot](https://github.com/Furlos/Marzban_bot)
 
-Backend + Telegram automation project with a separated **backend service**, **bot layer** and Docker Compose environment.
+**Focus:** backend API + external system integration
 
-`Python` `Backend` `Telegram` `Docker`
+Telegram automation built around a separate **FastAPI backend**. The bot acts as a client, while the backend owns validation and communication with the external Marzban API.
+
+`Python` `FastAPI` `Aiogram` `HTTPX` `Docker`
+
+**Shows:** transport/service separation, async HTTP, API boundaries, containerized services.
 
 </td>
 <td width="50%" valign="top">
 
 ### 📝 [MemoPad](https://github.com/Furlos/MemoPad)
 
-Local notes web app with authentication and CRUD flows, built with Flask and SQLite.
+**Focus:** classic web backend fundamentals
 
-`Python` `Flask` `SQLite` `Web`
+Local notes application with **authentication**, CRUD flows and persistent storage. A smaller project, but useful as a straightforward example of building a complete web flow from request to database.
+
+`Python` `Flask` `SQLite` `HTML`
+
+**Shows:** auth, CRUD, server-rendered web application, persistence basics.
 
 </td>
 </tr>
