@@ -9,8 +9,8 @@
 <p align="center">
   <a href="https://github.com/Furlos?tab=repositories">Repositories</a> ·
   <a href="https://github.com/Furlos/alfabank-AI-bot">AI Banking Assistant</a> ·
-  <a href="https://github.com/Furlos/vtb_optimization">Optimization</a> ·
-  <a href="https://github.com/Furlos/SIGNUM-bid-bot">Automation</a>
+  <a href="https://github.com/Furlos/vtb_optimization">PostgreSQL Optimization</a> ·
+  <a href="https://github.com/Furlos/Marzban_bot">Backend Automation</a>
 </p>
 
 ---
@@ -23,7 +23,7 @@ I like projects where backend engineering is visible: clear boundaries, predicta
 
 ```python
 class Furlos:
-    focus = ["Python", "Backend", "Databases", "AI integrations"]
+    focus = ["Python", "Backend", "PostgreSQL", "AI integrations"]
     building = ["APIs", "services", "automation", "data-heavy systems"]
     principles = ["simple > clever", "measure > guess", "ship > overthink"]
 ```
@@ -85,31 +85,31 @@ AI assistant for small business in Telegram. The project is split into a **Teleg
 </td>
 <td width="50%" valign="top">
 
-### 🧠 [VTB Optimization](https://github.com/Furlos/vtb_optimization)
+### 🐘 [PostgreSQL OLAP Optimization](https://github.com/Furlos/vtb_optimization)
 
-Python-focused optimization project — a compact engineering case where the implementation lives directly in a substantial Python module.
+Performance lab for analytical workloads over millions of synthetic banking records. Uses **BRIN / partial / composite indexes**, materialized views and repeatable query timing to compare raw OLAP queries with optimized paths.
 
-`Python` `Algorithms` `Optimization`
+`Python` `PostgreSQL` `OLAP` `Performance`
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-### ⚡ [SIGNUM Bid Bot](https://github.com/Furlos/SIGNUM-bid-bot)
+### ⚙️ [Marzban Bot](https://github.com/Furlos/Marzban_bot)
 
-Backend automation around a Telegram workflow — one of several projects where I use Python to connect business logic with messaging interfaces.
+Backend + Telegram automation project with a separated **backend service**, **bot layer** and Docker Compose environment.
 
-`Python` `Telegram` `Automation`
+`Python` `Backend` `Telegram` `Docker`
 
 </td>
 <td width="50%" valign="top">
 
-### 🧩 [More projects](https://github.com/Furlos?tab=repositories)
+### 📝 [MemoPad](https://github.com/Furlos/MemoPad)
 
-Experiments and production-style exercises around databases, bots, backend services, React integration and applied Python.
+Local notes web app with authentication and CRUD flows, built with Flask and SQLite.
 
-`Backend` `Databases` `Bots` `Web`
+`Python` `Flask` `SQLite` `Web`
 
 </td>
 </tr>
@@ -127,7 +127,7 @@ validate ──► authorize ──► domain logic ──► persistence
     │
     └──► useful errors + logs + metrics
 
-            then make the slow path faster.
+            then measure the slow path and make it faster.
 ```
 
 I’m especially interested in **Python backend development**, database-heavy systems, service architecture, optimization and practical AI integration.
