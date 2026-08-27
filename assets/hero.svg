@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset=".52" stop-color="#0b1730"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <linearGradient id="py" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#58a6ff"/><stop offset="1" stop-color="#f2cc60"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#58a6ff" stroke-opacity=".055"/></pattern>
+</defs>
+<rect width="1000" height="360" rx="24" fill="url(#bg)"/><rect width="1000" height="360" rx="24" fill="url(#grid)"/>
+<circle cx="850" cy="78" r="110" fill="#58a6ff" opacity=".035"/><circle cx="105" cy="320" r="150" fill="#f2cc60" opacity=".025"/>
+<g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+ <text x="58" y="68" fill="#7d8590" font-size="15">furlos@backend:~$ python profile.py</text>
+ <text x="58" y="132" fill="#f0f6fc" font-size="44" font-weight="700">LEV PRIMAK</text>
+ <text x="58" y="180" fill="url(#py)" font-size="27" font-weight="700">PYTHON BACKEND ENGINEER</text>
+ <text x="58" y="226" fill="#9da7b3" font-size="16">services / databases / async / integrations / AI</text>
+ <g transform="translate(58 267)" font-size="13" font-weight="600">
+  <rect width="92" height="34" rx="17" fill="#58a6ff" fill-opacity=".11" stroke="#58a6ff" stroke-opacity=".45"/><text x="18" y="22" fill="#79c0ff">PYTHON</text>
+  <rect x="106" width="126" height="34" rx="17" fill="#3fb950" fill-opacity=".09" stroke="#3fb950" stroke-opacity=".4"/><text x="124" y="22" fill="#56d364">POSTGRESQL</text>
+  <rect x="246" width="91" height="34" rx="17" fill="#a371f7" fill-opacity=".09" stroke="#a371f7" stroke-opacity=".4"/><text x="266" y="22" fill="#bc8cff">DOCKER</text>
+  <rect x="351" width="78" height="34" rx="17" fill="#f2cc60" fill-opacity=".08" stroke="#f2cc60" stroke-opacity=".4"/><text x="373" y="22" fill="#e3b341">ASYNC</text>
+ </g>
+ <g transform="translate(730 112)" fill="none" stroke-linecap="round">
+  <circle cx="88" cy="70" r="58" stroke="#58a6ff" stroke-opacity=".18"/>
+  <circle cx="88" cy="70" r="42" stroke="#58a6ff" stroke-opacity=".28" stroke-dasharray="4 8"><animateTransform attributeName="transform" type="rotate" from="0 88 70" to="360 88 70" dur="18s" repeatCount="indefinite"/></circle>
+  <path d="M52 72c0-28 14-36 37-36h21v17H82c-8 0-12 4-12 11v8h40c18 0 28 11 28 28v13c0 22-13 32-36 32H80v-17h28c8 0 12-4 12-11v-9H80c-18 0-28-11-28-28z" stroke="url(#py)" stroke-width="4" filter="url(#glow)"/>
+  <circle cx="87" cy="53" r="3" fill="#58a6ff" stroke="none"/><circle cx="103" cy="127" r="3" fill="#f2cc60" stroke="none"/>
+ </g>
+ <text x="738" y="287" fill="#7d8590" font-size="12">STATUS</text><circle cx="802" cy="283" r="5" fill="#3fb950"><animate attributeName="opacity" values="1;.25;1" dur="2s" repeatCount="indefinite"/></circle><text x="816" y="287" fill="#56d364" font-size="12">BUILDING</text>
+</g>
+</svg>
