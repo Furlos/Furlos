@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="410" viewBox="0 0 1000 410">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1220"/><stop offset="1" stop-color="#0d1627"/></linearGradient><filter id="g"><feGaussianBlur stdDeviation="5" result="x"/><feMerge><feMergeNode in="x"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect width="1000" height="410" rx="22" fill="url(#bg)" stroke="#30363d"/>
+<g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+<text x="42" y="48" fill="#7d8590" font-size="13">BACKEND CONSTELLATION // engineering focus, not proficiency scores</text>
+<g stroke="#303b4d" stroke-width="1.4" opacity=".9"><path d="M500 205L245 110M500 205L235 298M500 205L745 105M500 205L770 290M500 205L500 74M500 205L500 338M245 110L500 74M745 105L500 74M235 298L500 338M770 290L500 338"/></g>
+<g stroke="#58a6ff" stroke-opacity=".28" stroke-width="2"><path d="M500 205L245 110"><animate attributeName="stroke-opacity" values=".15;.7;.15" dur="3s" repeatCount="indefinite"/></path><path d="M500 205L745 105"><animate attributeName="stroke-opacity" values=".15;.7;.15" dur="3s" begin="1s" repeatCount="indefinite"/></path><path d="M500 205L770 290"><animate attributeName="stroke-opacity" values=".15;.7;.15" dur="3s" begin="2s" repeatCount="indefinite"/></path></g>
+<g text-anchor="middle">
+ <circle cx="500" cy="205" r="72" fill="#58a6ff" fill-opacity=".08" stroke="#58a6ff" stroke-width="2" filter="url(#g)"/><text x="500" y="199" fill="#f0f6fc" font-size="23" font-weight="700">PYTHON</text><text x="500" y="225" fill="#79c0ff" font-size="13">BACKEND CORE</text>
+ <g><circle cx="245" cy="110" r="49" fill="#3fb950" fill-opacity=".07" stroke="#3fb950" stroke-opacity=".65"/><text x="245" y="106" fill="#56d364" font-size="15" font-weight="700">APIs</text><text x="245" y="126" fill="#8b949e" font-size="11">services</text></g>
+ <g><circle cx="235" cy="298" r="55" fill="#a371f7" fill-opacity=".07" stroke="#a371f7" stroke-opacity=".65"/><text x="235" y="294" fill="#bc8cff" font-size="15" font-weight="700">POSTGRES</text><text x="235" y="314" fill="#8b949e" font-size="11">data layer</text></g>
+ <g><circle cx="745" cy="105" r="51" fill="#f2cc60" fill-opacity=".06" stroke="#f2cc60" stroke-opacity=".65"/><text x="745" y="101" fill="#e3b341" font-size="15" font-weight="700">ASYNC</text><text x="745" y="121" fill="#8b949e" font-size="11">concurrency</text></g>
+ <g><circle cx="770" cy="290" r="55" fill="#58a6ff" fill-opacity=".06" stroke="#58a6ff" stroke-opacity=".65"/><text x="770" y="286" fill="#79c0ff" font-size="15" font-weight="700">DOCKER</text><text x="770" y="306" fill="#8b949e" font-size="11">delivery</text></g>
+ <g><circle cx="500" cy="74" r="40" fill="#db61a2" fill-opacity=".06" stroke="#db61a2" stroke-opacity=".6"/><text x="500" y="79" fill="#f778ba" font-size="14" font-weight="700">AI</text></g>
+ <g><circle cx="500" cy="338" r="44" fill="#f85149" fill-opacity=".05" stroke="#f85149" stroke-opacity=".55"/><text x="500" y="343" fill="#ff7b72" font-size="14" font-weight="700">LINUX</text></g>
+</g></g></svg>
