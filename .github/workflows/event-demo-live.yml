@@ -1,0 +1,34 @@
+name: Event demo live page check
+on:
+  push:
+    paths: [".github/workflows/event-demo-live.yml"]
+  pull_request:
+    paths: [".github/workflows/event-demo-live.yml"]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Check public event calculator page
+        run: |
+          python - <<'PY'
+          import time
+          from urllib.request import Request,urlopen
+          from urllib.error import URLError
+          url="https://furlos-dev-portfolio.onrender.com/event-demo/"
+          for i in range(5):
+              try:
+                  with urlopen(Request(url,headers={"User-Agent":"Portfolio-Event-Demo-Sanity"}), timeout=30) as r:
+                      html=r.read().decode("utf-8")
+                      assert r.status==200
+                      assert "text/html" in r.headers.get("Content-Type","")
+                  for term in ("Конструктор события","Ваша мини-смета","Скопировать смету","Комплексный декор мероприятия","function update()","Данные не сохраняются"):
+                      assert term in html, term
+                  print(f"EVENT DEMO LIVE: HTTP 200, expected calculator HTML and scripts present ({len(html)} chars)",flush=True)
+                  break
+              except (OSError, URLError, AssertionError) as exc:
+                  print(f"Try {i+1}: {exc}",flush=True)
+                  time.sleep(6)
+          else:
+              raise RuntimeError("Public demo not available")
+          PY
