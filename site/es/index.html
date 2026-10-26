@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Automatizaciones para pequeños negocios: formularios de presupuesto, bots de Telegram, integraciones API y Python. Ejemplo real y presupuesto a medida.">
+<meta name="theme-color" content="#071626">
+<meta property="og:title" content="Automatizaciones para tu negocio | Furlos">
+<meta property="og:description" content="Recibe solicitudes más claras y ahorra tareas repetitivas. Formularios de presupuesto, bots e integraciones. Desde 149 €.">
+<meta property="og:type" content="website">
+<title>Automatizaciones para pequeños negocios | Furlos</title>
+<style>
+:root{color-scheme:dark;--bg:#071626;--panel:#122438;--border:#2a4056;--white:#f4f8ff;--text:#bbcad7;--muted:#8eabc0;--lime:#aee4cb;--dark:#0a2926}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse 70% 32% at 85% 3%,#17434a,transparent 82%),var(--bg);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.58}
+a{color:inherit;text-decoration:none}a:hover{color:var(--lime)}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.container{width:min(1080px,calc(100% - 38px));margin:auto}
+nav{min-height:76px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.logo{font-weight:850;font-size:1.5rem;letter-spacing:-.06em}.logo span{color:var(--lime)}
+.navlinks{display:flex;align-items:center;gap:25px;color:var(--text);font-size:.9rem;font-weight:600}
+.lang{border:1px solid var(--border);border-radius:99px;padding:5px 12px;color:var(--lime);font-size:.81rem}
+.hero{padding:105px 0 90px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;color:var(--lime);font-weight:750;letter-spacing:.14em;text-transform:uppercase}
+h1{font-size:clamp(2.7rem,7vw,5.6rem);line-height:1.055;letter-spacing:-.067em;margin:22px 0 22px;max-width:900px}
+h1 em{font-style:normal;color:var(--lime)}
+.intro{font-size:clamp(1.06rem,2vw,1.23rem);max-width:700px;color:var(--text);margin:0 0 33px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;min-height:49px;border-radius:10px;border:1px solid var(--border);background:var(--panel);color:#fff;font-weight:760;font-size:.94rem;transition:transform .13s}
+.btn:hover{transform:translateY(-2px)}.btn.primary{background:var(--lime);color:var(--dark);border-color:var(--lime)}
+.actions{display:flex;gap:12px;flex-wrap:wrap}.details{margin-top:30px;color:var(--muted);font-size:.91rem}
+section{padding:74px 0 0}section h2{letter-spacing:-.045em;font-size:clamp(1.7rem,3.8vw,2.45rem);margin:0 0 12px}
+.sectiondesc{color:var(--muted);margin:0 0 28px;max-width:690px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{border:1px solid var(--border);background:linear-gradient(140deg,#172d42,#102235);border-radius:18px;padding:24px}
+.card .num{font-size:.8rem;letter-spacing:.12em;font-weight:750;color:var(--lime);margin-bottom:19px}
+.card h3{margin:0 0 12px;letter-spacing:-.03em;font-size:1.18rem}
+.card p{color:var(--text);margin:0;font-size:.96rem}
+.demo{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:center;padding:30px;border:1px solid #376359;border-radius:18px;background:linear-gradient(115deg,#173e40,#142638)}
+.demo h3{font-size:1.5rem;letter-spacing:-.035em;margin:0 0 14px}.demo p{color:#c5d8d7;margin:0 0 22px}
+.steps{display:grid;gap:10px}.step{display:flex;align-items:flex-start;gap:12px;border:1px solid #315152;border-radius:11px;padding:13px;background:#112e34;font-size:.95rem}.step .number{display:grid;place-items:center;min-width:27px;height:27px;background:var(--lime);color:#14332a;border-radius:50%;font-weight:800;font-size:.8rem}
+.priceblock{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center;padding:28px;border:1px solid var(--border);border-radius:18px;background:var(--panel)}
+.price{font-size:clamp(2.4rem,5.5vw,4.1rem);letter-spacing:-.07em;font-weight:800;color:var(--lime);line-height:1.12;margin:10px 0 12px}.price small{font-size:1rem;letter-spacing:0;font-weight:600;color:var(--text)}
+.priceblock p{margin:0;color:var(--text)}.priceblock ul{margin:0;padding-left:20px;color:var(--text)}.priceblock li{padding:4px 0}
+.contact{margin:78px 0 60px;padding:38px;border:1px solid #40726d;border-radius:18px;background:linear-gradient(130deg,#133c44,#122539)}
+.contact h2{margin:0 0 10px}.contact p{margin:0 0 23px;max-width:670px;color:#cbdada}
+footer{border-top:1px solid var(--border);padding:25px 0 37px;color:var(--muted);font-size:.84rem;display:flex;justify-content:space-between;gap:14px}
+.note{margin-top:15px;font-size:.84rem;color:var(--muted)}
+@media(max-width:760px){.hero{padding:65px 0 55px}.grid{grid-template-columns:1fr}.demo,.priceblock{grid-template-columns:1fr}.navlinks{gap:12px;font-size:.79rem}.contact{margin-top:60px;padding:27px}section{padding-top:55px}}
+@media(max-width:390px){.navlinks{gap:7px;font-size:.74rem}.lang{padding:3px 8px}.container{width:min(1080px,calc(100% - 28px))}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav>
+<a class="logo" href="#inicio" aria-label="Furlos, inicio">furlos<span>.</span></a>
+<div class="navlinks"><a href="#servicios">Servicios</a><a href="#ejemplo">Ejemplo</a><a href="#contacto">Contacto</a><span class="lang">ES</span></div>
+</nav>
+<header class="hero" id="inicio">
+<div class="kicker">Python · Automatización · Bots de Telegram</div>
+<h1>Menos mensajes sueltos.<br><em>Solicitudes listas para trabajar.</em></h1>
+<p class="intro">Creo pequeñas herramientas para negocios: calculadoras de presupuesto, formularios inteligentes, bots de Telegram e integraciones con otros servicios. Sin proyectos enormes ni complicaciones innecesarias.</p>
+<div class="actions"><a class="btn primary" href="#contacto">Cuéntame qué necesitas</a><a class="btn" href="/es/demo/">Ver una demo real</a></div>
+<p class="details">Trabajo remoto · Presupuesto acordado antes de empezar · Código fuente incluido</p>
+</header>
+<main>
+<section id="servicios">
+<h2>¿Qué puedo hacer por tu negocio?</h2>
+<p class="sectiondesc">Soluciones sencillas para tareas que ahora se hacen a mano.</p>
+<div class="grid">
+<article class="card"><div class="num">01 / PRESUPUESTOS</div><h3>Calculadora personalizada</h3><p>El cliente elige servicios, cantidades y opciones. Ve un importe orientativo y tú recibes todos los datos de la solicitud.</p></article>
+<article class="card"><div class="num">02 / TELEGRAM</div><h3>Bot para solicitudes</h3><p>Preguntas paso a paso, botones, recopilación de información y aviso cuando entra una nueva solicitud.</p></article>
+<article class="card"><div class="num">03 / PYTHON Y API</div><h3>Automatizaciones</h3><p>Conecto servicios, proceso CSV, creo scripts de apoyo y pequeñas API para evitar trabajos repetitivos.</p></article>
+</div>
+</section>
+<section id="ejemplo">
+<h2>Una demo que puedes probar ahora</h2>
+<p class="sectiondesc">No solo una captura: el cálculo funciona de verdad.</p>
+<div class="demo">
+<div>
+<h3>Calculadora de presupuestos para eventos</h3>
+<p>Este ejemplo muestra cómo alguien puede elegir opciones, ajustar cantidades y obtener una estimación inmediata. Los precios son ficticios. Para tu empresa lo adaptaríamos a tus servicios y tarifas.</p>
+<div class="actions"><a class="btn primary" href="/es/demo/">Probar la calculadora</a><a class="btn" href="https://furlos-qr-demo.onrender.com" target="_blank" rel="noopener noreferrer">Otro proyecto: generador QR ↗</a></div>
+</div>
+<div class="steps">
+<div class="step"><span class="number">1</span><span>El cliente selecciona sus necesidades.</span></div>
+<div class="step"><span class="number">2</span><span>El importe se actualiza al momento.</span></div>
+<div class="step"><span class="number">3</span><span>Puede copiar o descargar su presupuesto.</span></div>
+</div>
+</div>
+</section>
+<section id="precios">
+<h2>¿Cuánto cuesta?</h2>
+<p class="sectiondesc">Para una tarea pequeña, empezamos con un alcance claro y un precio cerrado.</p>
+<div class="priceblock">
+<div>
+<div class="kicker">Precio de partida</div>
+<div class="price">149 € <small>desde</small></div>
+<p>Para un formulario, cálculo simple o mejora concreta de un bot. No es una tarifa fija para cualquier proyecto.</p>
+</div>
+<ul>
+<li>Una primera conversación para entender lo que necesitas.</li>
+<li>Presupuesto antes de empezar, sin sorpresas.</li>
+<li>Pruebas básicas y entrega del código fuente.</li>
+<li>Hosting o servicios externos, si hacen falta, se valoran por separado.</li>
+</ul>
+</div>
+</section>
+<section class="contact" id="contacto">
+<div class="kicker">Contacto</div>
+<h2>¿Tienes una idea parecida?</h2>
+<p>Escríbeme qué te gustaría automatizar. Te digo si puedo ayudarte y qué costaría, sin compromiso.</p>
+<div class="actions">
+<a class="btn primary" href="mailto:levprimak1007@gmail.com?subject=Consulta%20sobre%20automatizaci%C3%B3n%20para%20mi%20negocio&body=Hola%2C%20me%20interesa%20hacer%20una%20automatizaci%C3%B3n.%0A%0AMi%20negocio%3A%20%0AQu%C3%A9%20necesito%3A%20">Pedir presupuesto por email</a>
+<a class="btn" href="https://t.me/Fyrlosik" target="_blank" rel="noopener noreferrer">Escribir por Telegram ↗</a>
+</div>
+<p class="note">Sin formularios que guarden tus datos: el botón abre tu aplicación de correo. No se recopilan datos de navegación ni se usan cookies publicitarias en esta página.</p>
+</section>
+</main>
+<footer><span>Furlos · Desarrollo freelance remoto · España / servicios en español</span><a href="https://github.com/Furlos" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer>
+</div>
+</body>
+</html>
