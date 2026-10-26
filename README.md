@@ -5,8 +5,8 @@
 <h1 align="center">Lev Primak · Python Backend & AI Engineer</h1>
 
 <p align="center">
-  <a href="https://furlos-dev-portfolio.onrender.com/es/"><strong>Servicios en español — automatizaciones desde 149 €</strong></a> ·
-  <a href="https://furlos-dev-portfolio.onrender.com/es/demo/">Prueba la calculadora de presupuestos</a>
+  <a href="https://furlos-dev-portfolio.onrender.com/es/"><strong>Presupuestos web con WhatsApp — desde 149 €</strong></a> ·
+  <a href="https://furlos-dev-portfolio.onrender.com/es/demo/">Probar calculadora + compartir por WhatsApp</a>
 </p>
 
 <p align="center">
