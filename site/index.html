@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Furlos — Python backend разработка, Telegram-боты, FastAPI и API-интеграции. Примеры проектов и контакты.">
+  <meta name="theme-color" content="#0b1220">
+  <title>Furlos — Python Backend & Telegram Bots</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1220;--panel:#111e32;--line:#273650;--white:#edf5ff;--text:#c1ccdb;--muted:#8fa0b8;--cyan:#7ce1de;--soft:#122d37}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(ellipse 70% 46% at 92% 2%,#11364b 0%,transparent 76%),var(--bg);color:var(--white);font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.58}
+    a{color:inherit;text-decoration:none}a:focus-visible{outline:2px solid var(--cyan);outline-offset:4px;border-radius:4px}
+    .container{width:min(1080px,calc(100% - 36px));margin:auto}
+    nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-weight:850;letter-spacing:-.055em;font-size:1.45rem}.brand span{color:var(--cyan)}
+    .navlinks{display:flex;gap:22px;align-items:center;font-size:.94rem;color:var(--text)}
+    .navlinks a:hover,.inline:hover{color:var(--cyan)}
+    header{padding:104px 0 95px;border-bottom:1px solid var(--line)}
+    .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-weight:750;font-size:.76rem;color:var(--cyan);margin-bottom:19px}
+    h1{font-size:clamp(2.6rem,7vw,5.2rem);line-height:1.07;letter-spacing:-.065em;max-width:920px;margin:0 0 26px}
+    h1 em{font-style:normal;color:var(--cyan)}
+    .lede{max-width:710px;font-size:clamp(1.05rem,2.3vw,1.28rem);color:var(--text);margin:0}
+    .actions{margin-top:35px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:14px 20px;border:1px solid var(--line);border-radius:11px;font-weight:750;background:var(--panel);transition:transform .15s}
+    .btn:hover{transform:translateY(-2px)}.btn.primary{background:var(--cyan);color:#05222a;border-color:var(--cyan)}
+    .meta{margin-top:36px;color:var(--muted);font-size:.88rem}
+    section{padding:78px 0 14px}.sectionhead{margin-bottom:30px}.sectionhead h2{font-size:clamp(1.7rem,4vw,2.3rem);letter-spacing:-.04em;margin:0 0 7px}.sectionhead p{margin:0;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(160deg,#13253a,#101b2c);padding:24px;min-height:180px}
+    .card h3{margin:0 0 10px;line-height:1.3;font-size:1.12rem;letter-spacing:-.02em}
+    .card p{color:var(--text);margin:0;font-size:.95rem}
+    .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .project{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:26px;display:flex;flex-direction:column}
+    .tag{display:inline-block;width:max-content;color:var(--cyan);background:var(--soft);border:1px solid #215263;padding:4px 9px;border-radius:8px;font-size:.75rem;font-weight:750;margin-bottom:15px}
+    .project h3{font-size:1.22rem;letter-spacing:-.025em;margin:0 0 7px}
+    .project p{color:var(--text);margin:0 0 20px;flex:1}
+    .links{display:flex;gap:18px;flex-wrap:wrap}.inline{color:var(--cyan);font-weight:700;font-size:.91rem}
+    .contact{margin:78px 0;padding:38px;border:1px solid #255a64;border-radius:20px;background:linear-gradient(115deg,#123740,#132039)}
+    .contact h2{letter-spacing:-.045em;font-size:clamp(1.7rem,4vw,2.3rem);margin:0 0 9px}
+    .contact p{color:var(--text);margin:0;max-width:750px}
+    footer{padding:24px 0 38px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;color:var(--muted);font-size:.86rem}
+    @media(max-width:700px){header{padding:68px 0 64px}.grid,.projects{grid-template-columns:1fr}.navlinks{gap:12px;font-size:.82rem}nav{height:64px}.contact{padding:26px;margin:60px 0}section{padding-top:58px}footer{display:block}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav aria-label="Главная навигация">
+      <a class="brand" href="#home">Furlos<span>.</span></a>
+      <div class="navlinks"><a href="#services">Услуги</a><a href="#projects">Проекты</a><a href="#contacts">Связаться</a></div>
+    </nav>
+    <header id="home">
+      <div class="eyebrow">Python Backend • Telegram • API</div>
+      <h1>Бэкенд и боты,<br>которые <em>решают задачи.</em></h1>
+      <p class="lede">Разрабатываю сервисы на Python и FastAPI, интегрирую внешние API, автоматизирую рутину и дорабатываю Telegram-ботов. Беру небольшие, конкретно поставленные задачи.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://t.me/Fyrlosik" target="_blank" rel="noopener noreferrer">Обсудить задачу в Telegram</a>
+        <a class="btn" href="mailto:levprimak1007@gmail.com">Написать на почту</a>
+      </div>
+      <div class="meta">Python · FastAPI · Aiogram · PostgreSQL · Docker · REST API</div>
+    </header>
+    <main>
+      <section id="services">
+        <div class="sectionhead"><h2>С чем помогу</h2><p>Небольшая задача, понятный результат, проверяемая работа.</p></div>
+        <div class="grid">
+          <article class="card"><h3>Telegram-боты</h3><p>Исправление ошибок, новые команды, сценарии заявок, подключение базы данных и API.</p></article>
+          <article class="card"><h3>FastAPI и интеграции</h3><p>REST-эндпоинты, связка сервисов, обработка данных, валидация запросов.</p></article>
+          <article class="card"><h3>Автоматизация на Python</h3><p>Скрипты для регулярных задач, обмен данными, работа с CSV и SQL.</p></article>
+        </div>
+      </section>
+      <section id="projects">
+        <div class="sectionhead"><h2>Избранные проекты</h2><p>Реальные репозитории и один публичный рабочий сервис.</p></div>
+        <div class="projects">
+          <article class="project">
+            <span class="tag">Работает онлайн</span>
+            <h3>QR Generator</h3>
+            <p>Мини-сервис генерации QR-кодов: FastAPI, веб-интерфейс, Docker, автоматические тесты и публичный деплой.</p>
+            <div class="links"><a class="inline" href="https://furlos-qr-demo.onrender.com" target="_blank" rel="noopener noreferrer">Открыть приложение ↗</a></div>
+          </article>
+          <article class="project">
+            <span class="tag">Backend / Telegram</span>
+            <h3>Marzban Control Plane</h3>
+            <p>Отдельный Python-бэкенд и Telegram-интерфейс для интеграции с внешним API. Проект-прототип, не коммерческая платёжная система.</p>
+            <div class="links"><a class="inline" href="https://github.com/Furlos/Marzban_bot" target="_blank" rel="noopener noreferrer">Посмотреть код ↗</a></div>
+          </article>
+          <article class="project">
+            <span class="tag">LLM / Docker</span>
+            <h3>Business AI Assistant</h3>
+            <p>Командный прототип помощника: Aiogram, FastAPI, интеграция с локальной LLM через Ollama.</p>
+            <div class="links"><a class="inline" href="https://github.com/Furlos/alfabank-AI-bot" target="_blank" rel="noopener noreferrer">Посмотреть код ↗</a></div>
+          </article>
+          <article class="project">
+            <span class="tag">SQL / Performance</span>
+            <h3>PostgreSQL OLAP Lab</h3>
+            <p>Синтетические банковские данные, SQL-индексы, материализованные представления и сравнение запросов.</p>
+            <div class="links"><a class="inline" href="https://github.com/Furlos/vtb_optimization" target="_blank" rel="noopener noreferrer">Посмотреть код ↗</a></div>
+          </article>
+        </div>
+      </section>
+      <section id="contacts" aria-label="Контакты">
+        <div class="contact">
+          <h2>Есть задача по Python?</h2>
+          <p>Напишите, что нужно сделать, какой результат ожидаете и какой у вас срок. Смогу оценить объём работ и предложить решение.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://t.me/Fyrlosik" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a class="btn" href="mailto:levprimak1007@gmail.com">Email</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer><span>Furlos · Python Backend Developer</span><a href="https://github.com/Furlos" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer>
+  </div>
+</body>
+</html>
