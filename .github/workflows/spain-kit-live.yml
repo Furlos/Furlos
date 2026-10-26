@@ -1,0 +1,65 @@
+name: Spain GitHub kit and PNG gallery smoke test
+on:
+  push:
+    paths:
+      - "spain-launch-kit/**"
+      - "site/es/creatives/**"
+      - ".github/workflows/spain-kit-live.yml"
+  pull_request:
+    paths:
+      - "spain-launch-kit/**"
+      - "site/es/creatives/**"
+      - ".github/workflows/spain-kit-live.yml"
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check that all GitHub kit documents exist
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          root=Path("spain-launch-kit")
+          required=[
+            "README.md","WORK_PROMPT.md","FIVERR.md","WORKANA.md","WALLAPOP.md",
+            "FREELANCER.md","MESSAGES.md","PAYMENTS.md","FREE_PROMOTION.md","PAID_ADS_DRAFT.md"
+          ]
+          for file in required:
+            path=root/file
+            assert path.exists(),path
+            data=path.read_text(encoding="utf-8")
+            assert len(data)>1000,(path,len(data))
+            print("PASS",path)
+          root_file=(root/"README.md").read_text()
+          assert "https://furlos-dev-portfolio.onrender.com/es/creatives/" in root_file
+          html=Path("site/es/creatives/index.html").read_text(encoding="utf-8")
+          assert 'id="picture1"' in html and 'id="picture2"' in html and 'id="picture3"' in html
+          assert 'canvas.toBlob(' in html and 'a.download=filename' in html
+          import re
+          scripts=re.findall(r"<script>(.*?)</script>",html,re.S)
+          assert scripts, "Missing gallery script"
+          Path("/tmp/spanish-gallery.js").write_text(scripts[-1])
+          print("PASS gallery export sources")
+          PY
+          node --check /tmp/spanish-gallery.js
+      - name: Check public gallery after Render deployment
+        if: github.ref == 'refs/heads/main'
+        run: |
+          python - <<'PY'
+          from urllib.request import urlopen,Request
+          import time
+          url="https://furlos-dev-portfolio.onrender.com/es/creatives/"
+          for i in range(7):
+            try:
+              with urlopen(Request(url,headers={"User-Agent":"FurlosSpainKitCI"}),timeout=35) as r:
+                assert r.status==200 and "text/html" in r.headers.get("Content-Type","")
+                body=r.read().decode("utf-8")
+              assert "Descargar PNG 1" in body and "Descargar PNG 2" in body and "Descargar PNG 3" in body
+              print("PASS public Spanish PNG gallery",url)
+              break
+            except Exception as e:
+              print("Waiting",i,e,flush=True)
+              time.sleep(8)
+          else: raise RuntimeError("Public gallery not deployed")
+          PY
