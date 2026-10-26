@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Tres imágenes originales para presentar una calculadora de presupuestos con WhatsApp en plataformas freelance. Descarga PNG sin registro.">
+<meta name="robots" content="noindex,follow">
+<title>Imágenes para un Gig — Furlos Spain Kit</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#f2f5f7;color:#192d31;line-height:1.5}
+main{max-width:1180px;padding:28px 20px 55px;margin:auto}
+header{margin:0 0 25px}
+h1{font-size:clamp(1.7rem,3.5vw,2.5rem);letter-spacing:-.05em;margin:13px 0 7px}
+h2{font-size:1.25rem;margin:0 0 4px}
+p{margin:0 0 10px;color:#526a71}
+a{color:#006a57}
+.return{font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px}
+.card{border:1px solid #dce5e6;border-radius:18px;overflow:hidden;background:white;box-shadow:0 10px 24px #1c435312}
+.preview{position:relative;background:#dee9e9}
+canvas{display:block;width:100%;height:auto;aspect-ratio:1280/769}
+.body{padding:18px}
+button{padding:12px 18px;background:#096e5c;border:0;border-radius:9px;font-size:.95rem;color:white;cursor:pointer;font-weight:750;min-height:44px}
+button:hover{background:#034d40}
+button:focus-visible,a:focus-visible{outline:3px solid #4cc8af;outline-offset:4px}
+.pill{display:inline-block;padding:5px 10px;border-radius:99px;background:#e4f5ee;color:#126a55;font-weight:700;font-size:.78rem;margin-bottom:6px}
+.note{margin:23px 0;padding:20px;background:#edf6f6;border-radius:12px;color:#3e5e64}
+small{color:#587377}
+@media(max-width:550px){main{padding:17px 13px 38px}.grid{gap:14px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<a class="return" href="/es/">← Furlos España</a>
+<h1>Imágenes para presentar la calculadora</h1>
+<p>Materiales originales basados en una demo funcional. No son capturas de clientes reales ni reseñas. Descarga cada imagen como PNG (1280 × 769 px).</p>
+</header>
+<div class="grid">
+<section class="card">
+<div class="preview"><canvas id="picture1" width="1280" height="769" role="img" aria-label="Imagen uno: calculadora de presupuestos web con precios y una interfaz ilustrativa"></canvas></div>
+<div class="body"><div class="pill">01 · Principal</div><h2>Presupuestos más fáciles</h2><p>Para presentar el Gig de calculadoras de precios.</p><button type="button" data-image="1">Descargar PNG 1</button></div>
+</section>
+<section class="card">
+<div class="preview"><canvas id="picture2" width="1280" height="769" role="img" aria-label="Imagen dos: recorrido elegir opciones, calcular y preparar mensaje WhatsApp"></canvas></div>
+<div class="body"><div class="pill">02 · WhatsApp</div><h2>Del cálculo al mensaje</h2><p>Muestra cómo se comparte una estimación manualmente.</p><button type="button" data-image="2">Descargar PNG 2</button></div>
+</section>
+<section class="card">
+<div class="preview"><canvas id="picture3" width="1280" height="769" role="img" aria-label="Imagen tres: herramienta a medida para negocios de reformas, eventos y servicios"></canvas></div>
+<div class="body"><div class="pill">03 · Desarrollo a medida</div><h2>Un diseño para cada negocio</h2><p>Para un portfolio o anuncio donde se permiten imágenes conceptuales.</p><button type="button" data-image="3">Descargar PNG 3</button></div>
+</section>
+</div>
+<div class="note">
+<strong>Cómo usarlas:</strong> pulsa cada botón, descarga el archivo PNG y súbelo directamente a la galería de la plataforma. Las imágenes son ilustraciones creadas para este servicio; si una plataforma exige un vídeo o una foto personal, tendrás que añadirla tú. <br>
+<small>Sin trackers, cuenta ni pagos. El procesamiento se hace en tu navegador. Si no se descargan, usa un navegador moderno con JavaScript activado.</small>
+</div>
+</main>
+<script>
+"use strict";
+const W=1280,H=769;
+function rect(c,x,y,w,h,r,fill,stroke=null,line=1){
+ c.beginPath();c.roundRect(x,y,w,h,r);if(fill){c.fillStyle=fill;c.fill()}if(stroke){c.strokeStyle=stroke;c.lineWidth=line;c.stroke()}
+}
+function txt(c,str,x,y,size=28,col="#142d32",weight=600,maxWidth){
+ c.font=weight+" "+size+"px system-ui,Arial,sans-serif";c.fillStyle=col;c.textBaseline="alphabetic";
+ c.fillText(str,x,y,maxWidth);
+}
+function pill(c,str,x,y,w,fg,bg){rect(c,x,y,w,44,22,bg);txt(c,str,x+20,y+29,19,fg,700)}
+function circle(c,x,y,r,color){c.beginPath();c.arc(x,y,r,0,Math.PI*2);c.fillStyle=color;c.fill()}
+function base(c,a,b){const g=c.createLinearGradient(0,0,W,H);g.addColorStop(0,a);g.addColorStop(1,b);c.fillStyle=g;c.fillRect(0,0,W,H)}
+function brand(c,x=68,y=72,color="#183d36"){txt(c,"furlos.",x,y,35,color,850)}
+function drawDevice(c,x,y,w=480,h=580){
+ c.shadowColor="#09282d25";c.shadowBlur=34;c.shadowOffsetY=15;rect(c,x,y,w,h,27,"#ffffff");c.shadowBlur=0;c.shadowOffsetY=0;
+ rect(c,x,y,w,67,[27,27,0,0],"#e9f5f2");circle(c,x+37,y+34,7,"#1b9885");circle(c,x+61,y+34,7,"#7fceab");circle(c,x+85,y+34,7,"#c4e6d9");txt(c,"Demo · presupuesto",x+120,y+43,18,"#39685f",750);
+ txt(c,"Tu presupuesto",x+35,y+123,30,"#183c35",800);
+ rect(c,x+34,y+149,w-68,49,11,"#f0f6f3");txt(c,"Tipo de servicio: Evento",x+54,y+182,18,"#55736b",600);
+ txt(c,"Servicios",x+35,y+235,20,"#294e45",750);
+ const labels=[["Decoración","450 €"],["Fotografía","350 €"],["Música","300 €"]];
+ for(let i=0;i<labels.length;i++){
+  let yy=y+253+i*65;rect(c,x+35,yy,w-70,53,10,i===2?"#fff":"#e6f8f1",i===2?"#d1ddd9":"#badccf");
+  rect(c,x+49,yy+15,23,23,5,i===2?"#fff":"#0c9477","#70c1a8",2);
+  if(i<2)txt(c,"✓",x+53,yy+34,16,"white",800);
+  txt(c,labels[i][0],x+88,yy+33,19,"#2c4942",650);txt(c,labels[i][1],x+w-123,yy+33,19,"#26463d",750);
+ }
+ rect(c,x+35,y+470,w-70,85,15,"#123f34");
+ txt(c,"TOTAL ESTIMADO",x+55,y+497,16,"#a2d8bf",760);
+ txt(c,"800 €",x+55,y+538,35,"#ffffff",850);
+}
+function first(c){
+ base(c,"#e4f6eb","#b4d5c9");brand(c);
+ pill(c,"DESARROLLO A MEDIDA",70,105,308,"#145c48","#c5eddd");
+ txt(c,"PRESUPUESTOS",68,237,61,"#133f34",850);
+ txt(c,"SIN MÁS IDAS",68,308,60,"#133f34",850);
+ txt(c,"Y VENIDAS.",68,379,60,"#138866",850);
+ txt(c,"Una página sencilla para que tus clientes",70,452,27,"#30564a",550);
+ txt(c,"elijan servicios y vean un precio estimado.",70,489,27,"#30564a",550);
+ pill(c,"HTML  ·  CSS  ·  JAVASCRIPT",70,600,348,"#1f5543","#d9efe1");
+ drawDevice(c,762,77,445,604);
+ txt(c,"Ejemplo ilustrativo · Precios ficticios",71,712,17,"#4d7765",570);
+}
+function second(c){
+ base(c,"#102b2d","#083e34");brand(c,72,75,"#bdf4d6");
+ pill(c,"FÁCIL DE USAR",72,114,209,"#dcfff3","#256356");
+ txt(c,"DE TU WEB",72,245,70,"#f0fff6",850);
+ txt(c,"AL WHATSAPP",72,325,70,"#acedd1",850);
+ txt(c,"El cliente elige, calcula y comparte.",74,392,28,"#d3efe4",590);
+ txt(c,"Sin mensajes automáticos.",74,431,27,"#a5d4c3",560);
+ const steps=[
+   ["01","Elige opciones","Servicios y cantidades"],
+   ["02","Ve una estimación","Precio orientativo"],
+   ["03","Comparte el mensaje","Tú decides enviarlo"]
+ ];
+ for(let i=0;i<3;i++){
+  const x=75+i*383,y=526;
+  rect(c,x,y,358,150,18,"#184a43","#346a5d",2);
+  circle(c,x+39,y+44,22,"#b9f0d2");txt(c,steps[i][0],x+23,y+51,20,"#185541",800);
+  txt(c,steps[i][1],x+19,y+92,25,"#fff",750);
+  txt(c,steps[i][2],x+19,y+121,18,"#c0e8d8",500);
+ }
+ txt(c,"Furlos · Demo con datos ficticios",78,724,18,"#8bc2a7",500);
+}
+function third(c){
+ base(c,"#eff3ff","#c7e8e5");brand(c,72,74,"#1e365b");
+ pill(c,"SOLUCIONES A MEDIDA",74,118,282,"#1b5775","#d3eef6");
+ txt(c,"TU NEGOCIO,",74,239,68,"#152b54",860);
+ txt(c,"TU CALCULADORA.",74,323,65,"#1d857e",860);
+ txt(c,"Menos preguntas repetidas.",78,395,29,"#34526c",580);
+ txt(c,"Solicitudes con los datos preparados.",78,435,29,"#34526c",580);
+ const cards=[
+ ["01","Reformas","Metros, materiales"],
+ ["02","Eventos","Invitados, servicios"],
+ ["03","Limpieza","Superficie, frecuencia"]
+ ];
+ for(let i=0;i<3;i++){
+  let x=78+i*382,y=509;rect(c,x,y,351,157,19,"#ffffff","#dce6ec",2);
+  pill(c,cards[i][0],x+17,y+15,67,"#15665f","#d7f4e9");
+  txt(c,cards[i][1],x+18,y+97,30,"#203d57",800);
+  txt(c,cards[i][2],x+18,y+126,20,"#647c8c",550);
+ }
+ txt(c,"Ejemplos de uso · No son clientes reales",79,722,19,"#607f8f",530);
+}
+const drawers={1:first,2:second,3:third};
+for(const [index,draw] of Object.entries(drawers)){
+ const canvas=document.getElementById("picture"+index);
+ const c=canvas.getContext("2d");
+ if(!c)continue;
+ draw(c);
+}
+async function downloadImage(i){
+ const canvas=document.getElementById("picture"+i);
+ const filename="furlos-fiverr-quote-whatsapp-"+i+".png";
+ const button=document.querySelector('[data-image="'+i+'"]');
+ if(button){button.disabled=true;button.textContent="Preparando PNG…";}
+ try{
+  const blob=await new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(new Error("No se pudo generar PNG")),"image/png"));
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();
+  window.setTimeout(()=>URL.revokeObjectURL(url),5000);
+ }catch(e){alert("No se pudo descargar la imagen: "+e.message)}
+ finally{if(button){button.disabled=false;button.textContent="Descargar PNG "+i}}
+}
+document.querySelectorAll("button[data-image]").forEach(btn=>{
+ btn.addEventListener("click",()=>downloadImage(btn.dataset.image));
+});
+</script>
+</body>
+</html>
