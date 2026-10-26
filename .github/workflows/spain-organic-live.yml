@@ -31,7 +31,7 @@ jobs:
           for path,expected in resources.items():
             for attempt in range(5):
               try:
-                with urllib.request.urlopen(urllib.request.Request(root+path,headers={"User-Agent":"SpainOrganicCI"}),timeout=35) as response:
+                with urllib.request.urlopen(urllib.request.Request(root+path+"?smoke=202610262130-"+str(attempt),headers={"User-Agent":"SpainOrganicCI","Cache-Control":"no-cache"}),timeout=35) as response:
                   assert response.status==200, (path,response.status)
                   body=response.read().decode("utf-8")
                   for term in expected:
