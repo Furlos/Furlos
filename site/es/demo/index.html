@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Prueba una calculadora de presupuesto interactiva. Selecciona servicios y comprueba cómo se actualiza el precio en tiempo real.">
+<meta name="description" content="Prueba un presupuesto interactivo: elige servicios, calcula el total y prepara una solicitud para compartir por WhatsApp sin envíos automáticos.">
 <meta name="theme-color" content="#f8f5f1">
 <link rel="canonical" href="https://furlos-dev-portfolio.onrender.com/es/demo/">
 <meta name="robots" content="index,follow">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:url" content="https://furlos-dev-portfolio.onrender.com/es/demo/">
-<title>Calculadora de presupuestos interactiva (demo) | Furlos</title>
+<title>Presupuesto para compartir por WhatsApp | Demo Furlos</title>
 <style>
 :root{color-scheme:light;--bg:#f8f5f1;--text:#292d31;--muted:#747675;--accent:#18796c;--border:#e2e2de}
 *{box-sizing:border-box}body{background:var(--bg);margin:0;color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
@@ -40,7 +40,7 @@ label.field{display:block}.field span{display:block;font-size:.85rem;font-weight
 .summary p{color:#d0e4dc}.summary .row{display:flex;justify-content:space-between;gap:9px;padding:8px 0;font-size:.87rem;border-bottom:1px solid #426459}
 .summary .row b{text-align:right;font-size:.9rem}.sum{border-top:1px solid #759087;margin-top:16px;padding-top:20px}
 .sum span{color:#d5e9dd;font-size:.82rem}.sum strong{display:block;font-size:2.35rem;letter-spacing:-.05em;margin:6px 0}
-button{width:100%;border:0;border-radius:9px;padding:13px;margin-top:12px;background:#c6f5df;color:#174534;font-weight:800}
+button{width:100%;border:0;border-radius:9px;padding:13px;margin-top:12px;background:#c6f5df;color:#174534;font-weight:800}.share{display:block;text-align:center;text-decoration:none;border:0;border-radius:9px;padding:13px;margin-top:12px;background:#c6f5df;color:#174534;font-weight:800}.share:hover{color:#174534;text-decoration:underline}
 button.secondary{background:transparent;color:#e5f6ed;border:1px solid #739084}
 .smallnote{font-size:.78rem;color:#d4e4dd;line-height:1.5;margin:17px 0 0}
 .cta{margin:24px 0 35px;padding:24px;background:#fff;border:1px solid var(--border);border-radius:14px}
@@ -53,7 +53,7 @@ footer{padding:20px 0 33px;border-top:1px solid var(--border);font-size:.79rem;c
 <body>
 <div class="wrap">
 <nav><div class="logo">Furlos · Demo</div><a class="back" href="/es/">← Volver a servicios</a></nav>
-<header class="hero"><div class="kicker">Calculadora de presupuesto · Ejemplo funcional</div><h1>Organiza tu evento a tu manera.</h1><p>Selecciona lo que necesitas y descubre el presupuesto orientativo al instante. Este es un ejemplo de cómo funcionaría una herramienta adaptada a tu negocio.</p></header>
+<header class="hero"><div class="kicker">Calculadora de presupuesto · Ejemplo funcional</div><h1>Calcula el precio y compártelo por WhatsApp.</h1><p>Elige las opciones, mira la estimación y prepara un mensaje con los datos para enviar a quien tú decidas. Así podría funcionar para tu negocio.</p></header>
 <main class="layout">
 <section class="card" aria-label="Opciones del evento">
 <h2>Tu evento</h2><p>Primero, algunos detalles.</p>
@@ -71,9 +71,10 @@ footer{padding:20px 0 33px;border-top:1px solid var(--border);font-size:.79rem;c
 <h2>Tu presupuesto</h2><p>Los importes cambian según tu selección.</p>
 <div id="lines" aria-live="polite"></div>
 <div class="sum"><span>Total orientativo</span><strong id="total">0 €</strong></div>
+<a id="whatsapp-share" class="share" href="https://api.whatsapp.com/send" target="_blank" rel="noopener noreferrer">Compartir por WhatsApp ↗</a>
 <button id="copy" type="button">Copiar presupuesto</button>
 <button id="download" class="secondary" type="button">Descargar .txt</button>
-<div class="smallnote">Aviso: precios totalmente ficticios, sin finalidad comercial. No es una oferta real ni incluye un cálculo de impuestos. No se guarda ni se envía ningún dato.</div>
+<div class="smallnote">Aviso: precios ficticios, sin finalidad comercial ni cálculo de impuestos. Esta web no guarda ni envía datos por sí sola. Al pulsar «Compartir» se abre WhatsApp; tú eliges el contacto y confirmas el envío.</div>
 </aside>
 </main>
 <div class="cta">
@@ -138,6 +139,7 @@ const euro=document.createElement("b");euro.textContent=format(item.price);
 row.append(label,euro);list.append(row);
 }
 byId("total").textContent=format(items.reduce((sum,s)=>sum+s.price,0));
+byId("whatsapp-share").href="https://api.whatsapp.com/send?text="+encodeURIComponent(budget());
 }
 for(const id of ["event","guests","date","city"]) byId(id).addEventListener("input",render);
 byId("copy").addEventListener("click",async()=>{
