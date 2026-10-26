@@ -21,7 +21,7 @@ jobs:
           site="https://furlos-dev-portfolio.onrender.com"
           pages={
             "/es/":["WhatsApp","rel=\"canonical\"","149 €","/es/demo/"],
-            "/es/demo/":["id=\"whatsapp-share\"","api.whatsapp.com/send?text=","encodeURIComponent(budget())","Precio", "No se guarda"]
+            "/es/demo/":["id=\"whatsapp-share\"","api.whatsapp.com/send?text=","encodeURIComponent(budget())","Precio", "Esta web no guarda"]
           }
           for route,terms in pages.items():
             for attempt in range(5):
@@ -32,7 +32,7 @@ jobs:
                 for term in terms:
                   assert term in html, (route,term)
                 if route.endswith("/demo/"):
-                  scripts=re.findall(r"<script(?:\\s+[^>]*)?>([\\s\\S]*?)</script>",html)
+                  scripts=re.findall(r"<script>(.*?)</script>",html,re.S)
                   assert scripts, "Missing calculator JavaScript"
                   pathlib.Path("/tmp/quote.js").write_text(scripts[-1])
                   assert 'byId("whatsapp-share").href=' in scripts[-1]
