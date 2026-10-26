@@ -5,6 +5,12 @@
 <h1 align="center">Lev Primak · Python Backend & AI Engineer</h1>
 
 <p align="center">
+  <a href="https://furlos-dev-portfolio.onrender.com/es/">🇪🇸 Servicios en español — automatizaciones desde 149 €</a> ·
+  <a href="https://furlos-dev-portfolio.onrender.com/es/demo/">Prueba la calculadora de presupuestos</a>
+</p>
+
+
+<p align="center">
   Python · FastAPI · PostgreSQL · API integrations · Telegram automation · AI/LLM
 </p>
 
