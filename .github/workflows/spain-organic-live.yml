@@ -1,0 +1,51 @@
+name: Spain organic pages live verification
+on:
+  push:
+    paths:
+      - ".github/workflows/spain-organic-live.yml"
+      - "site/es/**"
+      - "site/robots.txt"
+      - "site/sitemap.xml"
+  pull_request:
+    paths:
+      - ".github/workflows/spain-organic-live.yml"
+      - "site/es/**"
+      - "site/robots.txt"
+      - "site/sitemap.xml"
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Inspect live Spanish offer, sitemap and robots.txt
+        run: |
+          python - <<'PY'
+          import time, urllib.request, xml.etree.ElementTree as ET
+          root="https://furlos-dev-portfolio.onrender.com"
+          resources={
+            "/es/":["lang=\"es\"","rel=\"canonical\"","schema.org","España","149 €"],
+            "/es/demo/":["lang=\"es\"","rel=\"canonical\"","Copiar presupuesto","EUR"],
+            "/robots.txt":["User-agent: *","Sitemap: "+root+"/sitemap.xml"],
+            "/sitemap.xml":["<urlset","/es/","/es/demo/"]
+          }
+          for path,expected in resources.items():
+            for attempt in range(5):
+              try:
+                with urllib.request.urlopen(urllib.request.Request(root+path,headers={"User-Agent":"SpainOrganicCI"}),timeout=35) as response:
+                  assert response.status==200, (path,response.status)
+                  body=response.read().decode("utf-8")
+                  for term in expected:
+                    assert term in body, (path,term)
+                  if path=="/sitemap.xml":
+                    parsed=ET.fromstring(body)
+                    ns={"s":"http://www.sitemaps.org/schemas/sitemap/0.9"}
+                    urls=[x.text for x in parsed.findall("s:url/s:loc",ns)]
+                    assert root+"/es/" in urls and root+"/es/demo/" in urls,urls
+                  print(f"PASS {path}: HTTP 200 ({len(body)} chars)",flush=True)
+                  break
+              except Exception as error:
+                print(f"Retry {path} {attempt+1}: {error}",flush=True)
+                time.sleep(6)
+            else:
+              raise RuntimeError(f"Live check failed for {path}")
+          PY
