@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://furlos-dev-portfolio.onrender.com/sitemap.xml
