@@ -56,6 +56,26 @@ A project combining a **FastAPI** backend, **MongoDB** and a **React** frontend.
 
 **Explore:** FastAPI · MongoDB · React
 
+## Available for freelance work
+
+I take small, clearly scoped **Python backend / Telegram bot** tasks:
+
+- **Telegram bots:** fix broken commands, add application flows, integrate databases or external REST APIs.
+- **FastAPI integrations:** build a simple endpoint, connect two services, validate incoming data, document behavior.
+- **Automation:** import/export CSV or spreadsheets, scheduled data processing, API synchronization.
+- **Backend maintenance:** reproduce and fix bugs, add tests, Dockerize small services.
+
+**Typical first engagement:** a single bug fix or integration with a defined acceptance test, not a vague multi-month project. Please send a short description, existing code/repo access where appropriate, deadline and budget to the contact listed above.
+
+### Code samples
+
+- [QR Generator](https://github.com/Furlos/QR_bot) — FastAPI image-generation API with a small web UI and smoke tests.
+- [Marzban Control Plane](https://github.com/Furlos/Marzban_bot) — Telegram bot, separate backend and external API integration.
+- [Business AI Assistant](https://github.com/Furlos/alfabank-AI-bot) — AI proxy via FastAPI, Aiogram and Ollama.
+- [PostgreSQL Lab](https://github.com/Furlos/vtb_optimization) — synthetic SQL workloads and optimizer experiments.
+
+*Some of these are prototypes; live production uptime and results are not claimed. See each repository's README for validation status.*
+
 ## What I'm working on
 
 - Making existing projects easier to run, test and understand.
