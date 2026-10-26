@@ -1,0 +1,48 @@
+name: Spain WhatsApp quote demo smoke
+on:
+  push:
+    paths:
+      - ".github/workflows/es-whatsapp-live.yml"
+      - "site/es/**"
+  pull_request:
+    paths:
+      - ".github/workflows/es-whatsapp-live.yml"
+      - "site/es/**"
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify Spanish offer and WhatsApp share demo is live
+        run: |
+          python - <<'PY'
+          from urllib.request import Request, urlopen
+          import re, time, pathlib
+          site="https://furlos-dev-portfolio.onrender.com"
+          pages={
+            "/es/":["WhatsApp","rel=\"canonical\"","149 €","/es/demo/"],
+            "/es/demo/":["id=\"whatsapp-share\"","api.whatsapp.com/send?text=","encodeURIComponent(budget())","Precio", "No se guarda"]
+          }
+          for route,terms in pages.items():
+            for attempt in range(5):
+              try:
+                with urlopen(Request(site+route,headers={"User-Agent":"SpainWhatsAppDemoCI"}),timeout=30) as resp:
+                  assert resp.status == 200 and "text/html" in resp.headers.get("Content-Type","")
+                  html=resp.read().decode("utf-8")
+                for term in terms:
+                  assert term in html, (route,term)
+                if route.endswith("/demo/"):
+                  scripts=re.findall(r"<script(?:\\s+[^>]*)?>([\\s\\S]*?)</script>",html)
+                  assert scripts, "Missing calculator JavaScript"
+                  pathlib.Path("/tmp/quote.js").write_text(scripts[-1])
+                  assert 'byId("whatsapp-share").href=' in scripts[-1]
+                print(f"PASS {route} HTTP 200 ({len(html)} chars)",flush=True)
+                break
+              except Exception as e:
+                print(f"Retry {attempt+1} {route}: {e}",flush=True)
+                time.sleep(6)
+            else:
+              raise RuntimeError(f"Spanish page missing: {route}")
+          PY
+          node --check /tmp/quote.js
+          echo "PASS calculator inline JavaScript syntax"
