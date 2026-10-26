@@ -1,0 +1,39 @@
+name: Spanish landing page live test
+on:
+  push:
+    paths: [".github/workflows/spanish-live.yml"]
+  pull_request:
+    paths: [".github/workflows/spanish-live.yml"]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check Spanish public offer and functional demo assets
+        run: |
+          python - <<'PY'
+          import time
+          from urllib.request import Request, urlopen
+          from urllib.error import URLError
+
+          base="https://furlos-dev-portfolio.onrender.com"
+          tests=[
+            ("/es/", ["lang=\"es\"","Menos mensajes sueltos","149 €","mailto:levprimak1007@gmail.com","/es/demo/"]),
+            ("/es/demo/", ["lang=\"es\"","Tu presupuesto","NumberFormat(\"es-ES\"","EUR","Copiar presupuesto","Descargar .txt"])
+          ]
+          for path, checks in tests:
+              for attempt in range(5):
+                  try:
+                      with urlopen(Request(base+path,headers={"User-Agent":"Furlos-ES-Smoke"}),timeout=40) as response:
+                          assert response.status==200, f"{path}: HTTP {response.status}"
+                          assert "text/html" in response.headers.get("Content-Type","")
+                          html=response.read().decode("utf-8")
+                      for check in checks: assert check in html, f"Missing {check} in {path}"
+                      print(f"PASS {path} - HTTP 200 and all page content checks ({len(html)} chars)", flush=True)
+                      break
+                  except (URLError, OSError, AssertionError) as e:
+                      print(f"Try {attempt+1} {path}: {e}",flush=True)
+                      time.sleep(7)
+              else:
+                  raise RuntimeError(f"Live Spanish page check failed: {path}")
+          PY
