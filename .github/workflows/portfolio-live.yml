@@ -1,0 +1,41 @@
+name: Public portfolio HTTP smoke test
+on:
+  push:
+    paths:
+      - ".github/workflows/portfolio-live.yml"
+  pull_request:
+    paths:
+      - ".github/workflows/portfolio-live.yml"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify Render public portfolio
+        shell: bash
+        run: |
+          python - <<'PY'
+          import time
+          from urllib.request import Request, urlopen
+          from urllib.error import URLError
+
+          url = "https://furlos-dev-portfolio.onrender.com/"
+          last_error = None
+          for attempt in range(5):
+              try:
+                  with urlopen(Request(url, headers={"User-Agent": "Furlos-Site-Check/1.0"}), timeout=40) as response:
+                      assert response.status == 200, f"HTTP {response.status}"
+                      assert "text/html" in response.headers.get("Content-Type", "")
+                      html = response.read().decode("utf-8")
+                  for expected in ("Furlos", "Бэкенд", "https://t.me/Fyrlosik", "https://furlos-qr-demo.onrender.com"):
+                      assert expected in html, f"Missing {expected}"
+                  print(f"Portfolio homepage HTTP 200, HTML and contact/demo links OK ({len(html)} characters)")
+                  break
+              except (URLError, OSError, AssertionError) as exc:
+                  last_error = exc
+                  print(f"Attempt {attempt+1}: {exc}", flush=True)
+                  time.sleep(8)
+          else:
+              raise RuntimeError(f"Live portfolio smoke check failed: {last_error}")
+          PY
