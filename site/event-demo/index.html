@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Интерактивный пример калькулятора сметы на оформление мероприятия.">
+  <meta name="theme-color" content="#f8f6f2">
+  <title>Конструктор мероприятия — демонстрация</title>
+  <style>
+    *{box-sizing:border-box} :root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#302b2b;background:#f8f6f2}
+    body{margin:0} button,input,select{font:inherit} button{cursor:pointer} a{color:inherit}
+    .wrap{max-width:1050px;padding:0 22px;margin:0 auto}
+    nav{border-bottom:1px solid #e4ded8;padding:20px 0;display:flex;justify-content:space-between;gap:12px;align-items:center}
+    .wordmark{font:700 19px Georgia,serif;letter-spacing:-.02em}.mini{font-size:12px;color:#846b65;background:#f1e5e0;padding:7px 10px;border-radius:999px}
+    h1,h2,h3{font-family:Georgia,serif;font-weight:500}h1{font-size:clamp(35px,6vw,63px);line-height:1.08;margin:16px 0 18px;letter-spacing:-.04em}
+    .hero{padding:50px 0 35px}.kicker{text-transform:uppercase;letter-spacing:.17em;font-size:11px;font-weight:750;color:#ad766e}
+    .sub{color:#6e6762;font-size:16px;max-width:640px;line-height:1.7}
+    .layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(270px,1fr);gap:24px;align-items:start;margin-bottom:48px}
+    .panel{background:white;border:1px solid #e9e1db;border-radius:18px;box-shadow:0 8px 30px rgba(63,42,35,.035);padding:26px}
+    .panel h2{font-size:27px;margin:0 0 6px}.panel p.hint{color:#8a7b76;font-size:13px;margin:0 0 20px}
+    .inputs{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
+    .field input,.field select{width:100%;padding:12px 13px;border-radius:10px;border:1px solid #ddd5ce;background:#fff;color:#332d2b;outline-color:#be928a}
+    .sectionline{margin:25px 0 17px;padding-top:20px;border-top:1px solid #f0e8e1;display:flex;justify-content:space-between;align-items:center;gap:8px}
+    .sectionline strong{font-size:16px}.sectionline small{font-size:12px;color:#9a8780}
+    .services{display:grid;gap:9px}.service{display:flex;gap:13px;align-items:center;padding:14px;border:1px solid #e9e0d8;border-radius:12px;transition:border-color .15s;cursor:pointer}
+    .service:has(input:checked){border-color:#be928a;background:#fcf7f4}
+    .service input{width:18px;height:18px;accent-color:#9e635b;flex:none}.info{flex:1;min-width:0}.info b{font-size:14px;display:block}.info span{font-size:12px;color:#8f817b}.price{font-size:13px;font-weight:750;white-space:nowrap}
+    .summary{position:sticky;top:16px;background:#433633;color:white;border-color:#433633}.summary h2{color:#fff}.summary p.hint{color:#dfcbc6}
+    .stats{border-top:1px solid #77615b;padding-top:18px;margin-top:16px}.row{display:flex;justify-content:space-between;gap:14px;margin:13px 0;font-size:13px;color:#e9d9d5}.row strong{text-align:right;color:white}
+    .total{border-top:1px solid #77615b;margin-top:18px;padding-top:19px;color:#faeee7}.total .big{font-size:clamp(26px,3.5vw,38px);font-weight:750;letter-spacing:-.03em;display:block}
+    .notice{font-size:12px;color:#e1c9c1;line-height:1.55;margin-top:16px}
+    .button{width:100%;padding:13px 18px;border:0;background:#f2d5c8;color:#442e2a;border-radius:10px;font-weight:750;margin-top:20px}
+    .button.secondary{background:transparent;border:1px solid #bea39a;color:#fff;margin-top:8px}
+    .footer{border-top:1px solid #e8e0d9;padding:25px 0 35px;font-size:12px;color:#98867e;line-height:1.6}
+    .admin{margin:0 0 48px}.admin details{border:1px solid #ddd5cf;background:#fff;border-radius:12px;padding:16px 20px}.admin summary{cursor:pointer;font-size:14px;font-weight:700}
+    .admin p{color:#766d68;font-size:13px}.admin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+    .admin-grid label{font-size:12px;font-weight:700;display:block}.admin-grid input{width:100%;margin-top:5px;padding:9px;border:1px solid #dbd3cc;border-radius:8px}
+    @media(max-width:750px){.layout{grid-template-columns:1fr}.summary{position:static}.hero{padding:32px 0 22px}.panel{padding:19px}.admin-grid{grid-template-columns:1fr}}
+    @media(max-width:410px){.inputs{grid-template-columns:1fr}.service{padding:10px}.price{font-size:12px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <div class="wordmark">Конструктор события<span style="color:#b48177">.</span></div>
+      <div class="mini">Интерактивный прототип</div>
+    </nav>
+    <header class="hero">
+      <div class="kicker">Индивидуальное оформление</div>
+      <h1>Ваш праздник.<br>Ваши детали.</h1>
+      <p class="sub">Выберите нужные услуги, чтобы собрать ориентировочную мини-смету. Каждый пункт можно включить или убрать. Итог обновляется автоматически.</p>
+    </header>
+    <main class="layout">
+      <section class="panel" aria-labelledby="title">
+        <h2 id="title">Параметры мероприятия</h2>
+        <p class="hint">Шаг 1: расскажите немного о вашем событии.</p>
+        <div class="inputs">
+          <div class="field"><label for="kind">Формат</label><select id="kind"><option>Свадьба</option><option>День рождения</option><option>Корпоратив</option><option>Другое мероприятие</option></select></div>
+          <div class="field"><label for="guests">Гостей</label><input id="guests" type="number" min="1" max="1000" value="40" inputmode="numeric"></div>
+          <div class="field"><label for="date">Предполагаемая дата</label><input id="date" type="date"></div>
+          <div class="field"><label for="location">Место проведения</label><input id="location" type="text" maxlength="80" placeholder="Город или площадка"></div>
+        </div>
+        <div class="sectionline"><strong>Выберите услуги</strong><small>Шаг 2: можно несколько</small></div>
+        <div class="services" id="services"></div>
+      </section>
+      <aside class="panel summary" aria-labelledby="estimate">
+        <h2 id="estimate">Ваша мини-смета</h2><p class="hint">Сразу видно, что входит в расчёт.</p>
+        <div class="stats" id="summary-lines"><p style="font-size:14px;color:#e7d2c9">Выберите услуги слева.</p></div>
+        <div class="total"><small>Итого по выбранным позициям</small><span class="big" id="total" aria-live="polite">0 ₽</span></div>
+        <p class="notice">Все цены в демонстрации условные. Это не коммерческое предложение студии. Реальные суммы и позиции устанавливаются владельцем проекта.</p>
+        <button class="button" id="copy" type="button">Скопировать смету</button>
+        <button class="button secondary" id="download" type="button">Скачать смету (.txt)</button>
+      </aside>
+    </main>
+    <section class="admin">
+      <details>
+        <summary>Как владелец сможет менять цены и список услуг?</summary>
+        <p>В прототипе можно изменить цены прямо здесь — расчёт обновится без перезагрузки. В итоговом Telegram-боте это можно сделать через конфигурацию или отдельную админ-команду после согласования.</p>
+        <div class="admin-grid" id="price-editor"></div>
+      </details>
+    </section>
+    <footer class="footer">Демонстрация логики, не официальный калькулятор Esthetic Event или другой студии. Данные не сохраняются и никуда не отправляются. Создано как пример для обсуждения заказа.</footer>
+  </div>
+<script>
+(function(){
+  "use strict";
+  const items=[
+    {id:"decor",name:"Комплексный декор мероприятия",detail:"Общее оформление пространства",price:28000},
+    {id:"flower",name:"Флористическое оформление",detail:"Цветочные композиции",price:18000},
+    {id:"ceremony",name:"Зона церемонии",detail:"Арка и декор выездной регистрации",price:15000},
+    {id:"photozone",name:"Фотозона",detail:"Отдельная зона для фотографий",price:9000},
+    {id:"print",name:"Свадебная полиграфия",detail:"План рассадки, карточки, таблички",price:5500},
+    {id:"rent",name:"Аренда декоративных элементов",detail:"Предметы декора, стойки и текстиль",price:7500},
+    {id:"experts",name:"Помощь в подборе специалистов",detail:"Подбор подрядчиков по запросу",price:5000}
+  ];
+  const picked=new Set(["decor","flower"]);
+  const byId=id=>document.getElementById(id);
+  const money=n=>new Intl.NumberFormat("ru-RU",{style:"currency",currency:"RUB",maximumFractionDigits:0}).format(n);
+  const services=byId("services"), editor=byId("price-editor");
+  function el(tag,cl,text){
+    const node=document.createElement(tag);
+    if(cl) node.className=cl;
+    if(text!==undefined) node.textContent=text;
+    return node;
+  }
+  function build(){
+    items.forEach(item=>{
+      const label=el("label","service");
+      const checkbox=el("input"); checkbox.type="checkbox";checkbox.checked=picked.has(item.id);
+      checkbox.setAttribute("aria-label",item.name);
+      checkbox.addEventListener("change",()=>{checkbox.checked?picked.add(item.id):picked.delete(item.id); update();});
+      const info=el("span","info");
+      info.append(el("b",null,item.name),el("span",null,item.detail));
+      const p=el("span","price",money(item.price));p.id="price-"+item.id;
+      label.append(checkbox,info,p);services.append(label);
+      const wrap=el("label",null,item.name);
+      const input=el("input");input.type="number";input.min="0";input.max="10000000";input.step="500";input.value=String(item.price);
+      input.addEventListener("change",()=>{
+        const n=Number(input.value);item.price=Number.isFinite(n)&&n>=0&&n<=10000000?Math.round(n):0;
+        input.value=String(item.price);p.textContent=money(item.price);update();
+      });
+      wrap.append(input);editor.append(wrap);
+    });
+    ["guests","date","kind","location"].forEach(id=>byId(id).addEventListener("input",update));
+    update();
+  }
+  function current(){
+    const guests=Math.max(1,Math.min(1000,parseInt(byId("guests").value,10)||1));
+    const selected=items.filter(x=>picked.has(x.id));
+    return {guests,selected,total:selected.reduce((sum,x)=>sum+x.price,0)};
+  }
+  function estimateText(){
+    const {guests,selected,total}=current();
+    const rows=[
+      "Предварительная мини-смета",
+      "Формат: "+byId("kind").value,
+      "Гостей: "+guests,
+      "Дата: "+(byId("date").value||"не выбрана"),
+      "Место: "+(byId("location").value.trim()||"не указано"),"",
+      "Выбранные услуги:"
+    ];
+    if(!selected.length) rows.push("Нет выбранных услуг");
+    selected.forEach(x=>rows.push("- "+x.name+": "+money(x.price)));
+    rows.push("","ИТОГО: "+money(total),"","* Пример с условными ценами. Точная смета после обсуждения с организатором.");
+    return rows.join("\n");
+  }
+  function update(){
+    const {selected,total}=current();
+    const summary=byId("summary-lines");summary.replaceChildren();
+    if(!selected.length)summary.append(el("p",null,"Пока ничего не выбрано."));
+    selected.forEach(x=>{const row=el("div","row");row.append(el("span",null,x.name),el("strong",null,money(x.price)));summary.append(row)});
+    byId("total").textContent=money(total);
+  }
+  byId("copy").addEventListener("click",async()=>{
+    try{
+      await navigator.clipboard.writeText(estimateText());
+      byId("copy").textContent="Скопировано ✓";
+      setTimeout(()=>byId("copy").textContent="Скопировать смету",1800);
+    }catch{
+      window.prompt("Скопируйте смету:",estimateText());
+    }
+  });
+  byId("download").addEventListener("click",()=>{
+    const blob=new Blob(["\ufeff",estimateText()],{type:"text/plain;charset=utf-8"});
+    const url=URL.createObjectURL(blob);
+    const a=el("a");a.href=url;a.download="estimate-demo.txt";document.body.append(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+  });
+  build();
+})();
+</script>
+</body>
+</html>
