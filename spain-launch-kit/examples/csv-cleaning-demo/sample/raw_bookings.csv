@@ -1,0 +1,8 @@
+booking_id,customer_name,email,booking_date,nights,amount
+BK-001,"  ana   GARCÍA ",ANA@example.com,2026-05-10,2,"€80"
+BK-002,"josé de la cruz",jose@example.com,17/05/2026,1,40
+BK-003,"María López",maria@example.com,05/06/2026,3,"120 EUR"
+BK-001,"Ana García",duplicate@example.com,2026-05-10,2,80
+BK-005,"Noelia Ruiz",noelia@example.com,2026-05-11,two,40
+BK-006,"Ömer Kaya",omer@example.com,05/17/2026,4,"160.00"
+
