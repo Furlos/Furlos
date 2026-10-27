@@ -13,7 +13,7 @@
 
 - Existing profile: https://www.workana.com/freelancer/1b6845ca12c8e7085139a6e7d6530595
 - Rate previously set to 25 €/hour; profile was submitted for free moderation. No paid boost or test was used.
-- Last known state: moderation pending. No profile changes or proposals made in this task.
+- Current profile view: moderation pending; banner says proposals cannot be sent yet. Profile completeness shows 30%; Russian/English/Spanish, Python/JavaScript/REST API, the About text, and one clearly labeled personal demo are visible. Workana shows weekly connects 0 of 0. No approval request is visible. Rate remains 25 €/hour. No profile changes, tests, paid boost, or proposals made in this task.
 
 ## Leads and outreach
 
