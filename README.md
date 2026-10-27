@@ -74,6 +74,7 @@ I take small, clearly scoped **Python backend / Telegram bot** tasks:
 
 ### Code samples
 
+- [CSV cleanup sample](https://github.com/Furlos/Furlos/tree/main/spain-launch-kit/examples/csv-cleaning-demo) — dependency-free Python example with fictional booking data; ambiguous dates are routed for review. This is a portfolio sample, not paid client work.
 - [QR Generator](https://github.com/Furlos/QR_bot) — FastAPI image-generation API with a small web UI and smoke tests.
 - [Marzban Control Plane](https://github.com/Furlos/Marzban_bot) — Telegram bot, separate backend and external API integration.
 - [Business AI Assistant](https://github.com/Furlos/alfabank-AI-bot) — AI proxy via FastAPI, Aiogram and Ollama.
