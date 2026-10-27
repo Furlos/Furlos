@@ -1,0 +1,5 @@
+source_row,booking_id,reason,raw_row
+4,BK-003,booking_date: ambiguous day/month order,"{""amount"": ""120 EUR"", ""booking_date"": ""05/06/2026"", ""booking_id"": ""BK-003"", ""customer_name"": ""María López"", ""email"": ""maria@example.com"", ""nights"": ""3""}"
+5,BK-001,duplicate booking_id,"{""amount"": ""80"", ""booking_date"": ""2026-05-10"", ""booking_id"": ""BK-001"", ""customer_name"": ""Ana García"", ""email"": ""duplicate@example.com"", ""nights"": ""2""}"
+6,BK-005,nights must be a positive whole number,"{""amount"": ""40"", ""booking_date"": ""2026-05-11"", ""booking_id"": ""BK-005"", ""customer_name"": ""Noelia Ruiz"", ""email"": ""noelia@example.com"", ""nights"": ""two""}"
+
