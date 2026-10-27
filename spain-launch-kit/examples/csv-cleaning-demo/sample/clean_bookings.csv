@@ -1,0 +1,5 @@
+booking_id,customer_name,email,booking_date,nights,amount
+BK-001,Ana García,ana@example.com,2026-05-10,2,80.00
+BK-002,José De La Cruz,jose@example.com,2026-05-17,1,40.00
+BK-006,Ömer Kaya,omer@example.com,2026-05-17,4,160.00
+
