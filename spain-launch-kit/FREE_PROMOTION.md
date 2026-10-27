@@ -76,3 +76,22 @@ La idea es sencilla: menos preguntas repetidas para quien atiende las solicitude
 - Время на запуск и стоимость привлечения.
 
 Когда 0 € тест даёт хотя бы признаки спроса, можно отдельно обсудить тест платной рекламы по файлу PAID_ADS_DRAFT.md; автоматически ничего платного не запускать.
+
+
+## Проверка площадок на 27.10.2026
+
+- **LinkedIn:** официальная справка подтверждает, что Service Page бесплатна и доступна фрилансерам по всему миру; любой участник может бесплатно написать через неё. Премиум-функции и медиа в Services Showcase платные — их не подключать. Для публичного поста выбрать видимость **Anyone** только после личного просмотра профиля и финального подтверждения; пост может быть виден вне LinkedIn. Нет активной авторизации, поэтому Service Page не создавалась, публикация остаётся черновиком. [LinkedIn: Service Pages](https://www.linkedin.com/help/linkedin/answer/a569534) · [Видимость публикаций](https://www.linkedin.com/help/lms/answer/a523141)
+- **Текст для страницы LinkedIn / TECH CLUB SPAIN после входа:**
+  
+  > He preparado una pequeña demo para enseñar cómo se puede pedir un presupuesto sin intercambiar tantos mensajes: el cliente elige opciones, ve una estimación y prepara un texto para compartirlo manualmente por WhatsApp. También he añadido un ejemplo independiente de limpieza de CSV con Python y datos inventados.  
+  >  
+  > Demo: https://furlos-dev-portfolio.onrender.com/es/demo/  
+  > Ejemplo CSV: https://github.com/Furlos/Furlos/tree/main/spain-launch-kit/examples/csv-cleaning-demo  
+  >  
+  > Si llevas un negocio pequeño y recibes solicitudes con las mismas preguntas una y otra vez, me interesa saber qué datos te gustaría recoger antes de responder. No hay bots que envíen mensajes automáticamente.
+  
+  En TECH CLUB SPAIN la página pública permite usar #freelance para ofrecer servicios; la participación es gratuita y la admisión puede tardar 3–5 días laborables. Seguir el hilo, usar un único post y no enlazar a otros grupos. [Reglas de TECH CLUB SPAIN](https://tech-club-spain.com/es/)
+- **Reddit:** no publicar aún. Las reglas son específicas por comunidad; la página pública de reglas de r/forhire no cargó con el detalle necesario para confirmar las condiciones actuales. Revisar reglas visibles desde la cuenta antes de cualquier post. No usar comunidades de preguntas técnicas para anuncios; aportar una respuesta útil sin promoción cuando las reglas no autorizan promoción. [Reddit: consejos para empresas y comunidades](https://www.business.reddit.com/learning-hub/articles/find-subreddits-for-your-business)
+- **GitHub:** añadido un enlace al ejemplo de CSV en el README del perfil y al lado de la tarjeta de automatización en el sitio español. Los elementos públicos del perfil pueden exponer información a todo el mundo; no cambiar ubicación o datos personales sin aprobación del usuario. [GitHub: visibilidad y elementos del perfil](https://docs.github.com/en/account-and-profile/reference/profile-reference)
+  
+**Estado:** los dos textos anteriores son materiales listos, no publicaciones. No se han enviado mensajes en frío, posts comunitarios ni solicitudes.
